@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 48.6, "left": -39, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -73.66,
+      "left": 77.03,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -114.9,
+      "left": -216.6,
+      "attrs": { "humidity": "41.5", "temperature": "58.8" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -24.85,
+      "left": -48,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -128.4,
+      "left": -92.2,
+      "attrs": { "color": "red" }
+    }
+  ],
+  "connections": [
+    [ "uno:A5.2", "oled1:SCL", "green", [ "v-145.6", "h-18" ] ],
+    [ "uno:A4.2", "oled1:SDA", "green", [ "v-168.27", "h71.33", "v10.67" ] ],
+    [ "uno:GND.1", "oled1:GND", "black", [ "v-32.27", "h126.17", "v-122", "h-103.33" ] ],
+    [
+      "uno:5V",
+      "oled1:VCC",
+      "red",
+      [ "v24.56", "h-207", "v-327.33", "h110.67", "v-38", "h84.67" ]
+    ],
+    [ "dht1:GND", "uno:GND.2", "black", [ "v141.65", "h265.51" ] ],
+    [ "dht1:SDA", "uno:2", "orange", [ "v27.4", "h347.58" ] ],
+    [ "dht1:VCC", "uno:5V", "red", [ "v274.24", "h282.33" ] ],
+    [ "led1:C", "r1:1", "black", [ "v0" ] ],
+    [ "r1:2", "uno:GND.1", "black", [ "v57.6", "h66" ] ],
+    [ "led1:A", "uno:13", "violet", [ "v48", "h67.2", "v-96", "h249.6", "v172.8", "h-163.2" ] ]
+  ],
+  "dependencies": {}
+}
